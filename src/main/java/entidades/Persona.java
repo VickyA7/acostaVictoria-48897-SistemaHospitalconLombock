@@ -1,7 +1,14 @@
-package org.entidades;
+package entidades;
+
+import lombok.Getter;
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+
+@Getter
+@ToString
 
 public abstract class Persona implements Serializable {
     protected final String nombre;
@@ -9,6 +16,7 @@ public abstract class Persona implements Serializable {
     protected final String dni;
     protected final LocalDate fechaNacimiento;
     protected final TipoSangre tipoSangre;
+    protected int edad;
 
     public Persona(String nombre, String apellido, String dni, LocalDate fechaNacimiento, TipoSangre tipoSangre) {
         this.nombre = validarString(nombre, "El nombre no puede ser nulo ni vacío");
@@ -18,34 +26,14 @@ public abstract class Persona implements Serializable {
         this.tipoSangre = Objects.requireNonNull(tipoSangre, "El tipo de sangre no puede ser nulo");
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public TipoSangre getTipoSangre() {
-        return tipoSangre;
-    }
-
+    //Utilizadas por demás clases para info de Medico o Paciente --> NombreCompleto y Edad(calculo con fechaNac)
     public String getNombreCompleto() {
         return nombre + " " + apellido;
     }
 
     public int getEdad() {
-        return LocalDate.now().getYear() - fechaNacimiento.getYear();
+        return LocalDate.now().getYear() - fechaNacimiento.getYear(); //Busco fecha y año actual MENOS fecha y año de nacim = edad
     }
-
     private String validarString(String valor, String mensajeError) {
         Objects.requireNonNull(valor, mensajeError);
         if (valor.trim().isEmpty()) {
@@ -60,16 +48,5 @@ public abstract class Persona implements Serializable {
             throw new IllegalArgumentException("El DNI debe tener 7 u 8 dígitos");
         }
         return dni;
-    }
-
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", dni='" + dni + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
-                ", tipoSangre=" + tipoSangre.getDescripcion() +
-                '}';
     }
 }

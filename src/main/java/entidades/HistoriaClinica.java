@@ -1,4 +1,7 @@
-package org.entidades;
+package entidades;
+
+import lombok.Getter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -7,6 +10,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+@Getter
+@ToString(exclude = {"paciente"})
 public class HistoriaClinica implements Serializable {
     private final String numeroHistoria;
     private final Paciente paciente;
@@ -23,18 +28,6 @@ public class HistoriaClinica implements Serializable {
 
     private String generarNumeroHistoria() {
         return "HC-" + paciente.getDni() + "-" + fechaCreacion.getYear();
-    }
-
-    public String getNumeroHistoria() {
-        return numeroHistoria;
-    }
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
     }
 
     public void agregarDiagnostico(String diagnostico) {
@@ -67,12 +60,4 @@ public class HistoriaClinica implements Serializable {
         return Collections.unmodifiableList(alergias);
     }
 
-    @Override
-    public String toString() {
-        return "HistoriaClinica{" +
-                "numeroHistoria='" + numeroHistoria + '\'' +
-                ", paciente=" + paciente.getNombreCompleto() +
-                ", fechaCreacion=" + fechaCreacion +
-                '}';
-    }
 }

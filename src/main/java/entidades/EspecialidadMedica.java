@@ -1,6 +1,11 @@
-package org.entidades;
+package entidades;
 
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Getter
 public enum EspecialidadMedica {
     CARDIOLOGIA("Cardiología"),
     NEUROLOGIA("Neurología"),
@@ -16,12 +21,4 @@ public enum EspecialidadMedica {
     ANESTESIOLOGIA("Anestesiología");
 
     private final String descripcion;
-
-    EspecialidadMedica(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
 }

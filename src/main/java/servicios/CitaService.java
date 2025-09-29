@@ -1,9 +1,5 @@
-package org.servicios;
-import org.entidades.Cita;
-import org.entidades.Medico;
-import org.entidades.Paciente;
-import org.entidades.Sala;
-import org.entidades.Excepcion.CitaException;
+package servicios;
+import entidades.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;

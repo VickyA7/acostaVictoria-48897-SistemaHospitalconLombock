@@ -1,4 +1,7 @@
-package org.entidades;
+package entidades;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -6,10 +9,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+@Getter
 
 public class Medico extends Persona implements Serializable {
     private final Matricula matricula;
     private final EspecialidadMedica especialidad;
+    @Setter
     private Departamento departamento;
     private final List<Cita> citas = new ArrayList<>();
 
@@ -20,16 +25,9 @@ public class Medico extends Persona implements Serializable {
         this.especialidad = Objects.requireNonNull(especialidad, "La especialidad no puede ser nula");
     }
 
-    public Matricula getMatricula() {
-        return matricula;
-    }
-
-    public EspecialidadMedica getEspecialidad() {
-        return especialidad;
-    }
-
-    public Departamento getDepartamento() {
-        return departamento;
+    @Override
+    public String getNombreCompleto() {
+        return super.getNombreCompleto();
     }
 
     public void setDepartamento(Departamento departamento) {
@@ -46,13 +44,5 @@ public class Medico extends Persona implements Serializable {
         return Collections.unmodifiableList(new ArrayList<>(citas));
     }
 
-    @Override
-    public String toString() {
-        return "Medico{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", especialidad=" + especialidad.getDescripcion() +
-                ", matricula=" + matricula.getNumero() +
-                '}';
-    }
+
 }

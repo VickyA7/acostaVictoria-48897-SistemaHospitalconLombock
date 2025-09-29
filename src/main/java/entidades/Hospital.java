@@ -1,9 +1,13 @@
-package org.entidades;
+package entidades;
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+
+@Getter
 
 public class Hospital implements Serializable {
     private final String nombre;
@@ -18,17 +22,6 @@ public class Hospital implements Serializable {
         this.telefono = validarString(telefono, "El teléfono no puede ser nulo ni vacío");
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
 
     public void agregarDepartamento(Departamento departamento) {
         if (departamento != null && !departamentos.contains(departamento)) {

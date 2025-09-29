@@ -1,4 +1,7 @@
-package org.entidades;
+package entidades;
+
+import lombok.Getter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,7 +9,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+@Getter
+@ToString(exclude = {"hospital", "medicos", "salas"})
 public class Departamento implements Serializable {
+
     private final String nombre;
     private final EspecialidadMedica especialidad;
     private Hospital hospital;
@@ -16,18 +22,6 @@ public class Departamento implements Serializable {
     public Departamento(String nombre, EspecialidadMedica especialidad) {
         this.nombre = validarString(nombre, "El nombre del departamento no puede ser nulo ni vacío");
         this.especialidad = Objects.requireNonNull(especialidad, "La especialidad no puede ser nula");
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public EspecialidadMedica getEspecialidad() {
-        return especialidad;
-    }
-
-    public Hospital getHospital() {
-        return hospital;
     }
 
     public void setHospital(Hospital hospital) {

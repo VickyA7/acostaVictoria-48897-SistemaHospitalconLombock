@@ -1,4 +1,10 @@
-package org.entidades;
+package entidades;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Getter
 public enum TipoSangre {
     A_POSITIVO("A+"),
     A_NEGATIVO("A-"),
@@ -10,12 +16,4 @@ public enum TipoSangre {
     O_NEGATIVO("O-");
 
     private final String descripcion;
-
-    TipoSangre(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
 }

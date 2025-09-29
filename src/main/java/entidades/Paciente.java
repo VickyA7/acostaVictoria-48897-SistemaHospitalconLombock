@@ -1,4 +1,7 @@
-package org.entidades;
+package entidades;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -7,10 +10,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+@Getter
 public class Paciente extends Persona implements Serializable {
     private final HistoriaClinica historiaClinica;
     private final String telefono;
     private final String direccion;
+    @Setter
     private Hospital hospital;
     private final List<Cita> citas = new ArrayList<>();
 
@@ -20,22 +25,6 @@ public class Paciente extends Persona implements Serializable {
         this.telefono = validarString(telefono, "El teléfono no puede ser nulo ni vacío");
         this.direccion = validarString(direccion, "La dirección no puede ser nula ni vacía");
         this.historiaClinica = new HistoriaClinica(this);
-    }
-
-    public HistoriaClinica getHistoriaClinica() {
-        return historiaClinica;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public Hospital getHospital() {
-        return hospital;
     }
 
     public void setHospital(Hospital hospital) {
@@ -66,14 +55,4 @@ public class Paciente extends Persona implements Serializable {
         return valor;
     }
 
-    @Override
-    public String toString() {
-        return "Paciente{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", dni='" + dni + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", tipoSangre=" + tipoSangre.getDescripcion() +
-                '}';
-    }
 }
