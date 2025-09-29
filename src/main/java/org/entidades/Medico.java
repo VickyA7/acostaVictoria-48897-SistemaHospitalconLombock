@@ -1,6 +1,4 @@
-package org.entidades.EntidadesBase;
-import org.entidades.CitaMedica.Cita;
-import org.entidades.CitaMedica.EspecialidadMedica;
+package org.entidades;
 
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -1,8 +1,8 @@
-package org.entidades.CapaServicios;
-import org.entidades.CitaMedica.Cita;
-import org.entidades.EntidadesBase.Medico;
-import org.entidades.EntidadesBase.Paciente;
-import org.entidades.EntidadesBase.Sala;
+package org.servicios;
+import org.entidades.Cita;
+import org.entidades.Medico;
+import org.entidades.Paciente;
+import org.entidades.Sala;
 import org.entidades.Excepcion.CitaException;
 
 import java.io.IOException;

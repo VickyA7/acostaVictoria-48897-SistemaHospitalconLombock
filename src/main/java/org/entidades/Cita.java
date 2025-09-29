@@ -1,7 +1,4 @@
-package org.entidades.CitaMedica;
-import org.entidades.EntidadesBase.Medico;
-import org.entidades.EntidadesBase.Paciente;
-import org.entidades.EntidadesBase.Sala;
+package org.entidades;
 import org.entidades.Excepcion.CitaException;
 
 import java.io.Serializable;

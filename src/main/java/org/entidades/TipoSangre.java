@@ -1,4 +1,4 @@
-package org.entidades.EntidadesBase;
+package org.entidades;
 public enum TipoSangre {
     A_POSITIVO("A+"),
     A_NEGATIVO("A-"),

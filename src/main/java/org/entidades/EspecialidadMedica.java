@@ -1,4 +1,4 @@
-package org.entidades.CitaMedica;
+package org.entidades;
 
 
 public enum EspecialidadMedica {

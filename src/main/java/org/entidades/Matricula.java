@@ -1,4 +1,4 @@
-package org.entidades.EntidadesBase;
+package org.entidades;
 
 import java.io.Serializable;
 import java.util.Objects;
